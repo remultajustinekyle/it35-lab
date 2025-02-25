@@ -23,8 +23,8 @@ import Details from './Details';
 
   const Menu: React.FC = () => {
     const path = [
-        {name:'Home', url: '/it35a-lab/app/home', icon: homeOutline},
-        {name:'About', url: '/it35a-lab/app/about', icon: rocketOutline},
+        {name:'Home', url: '/it35-lab/app/home', icon: homeOutline},
+        {name:'About', url: '/it35-lab/app/about', icon: rocketOutline},
     ]
 
     return (
@@ -49,7 +49,7 @@ import Details from './Details';
                         ))}
 
                         {/*Logout Button*/}
-                        <IonButton routerLink="/it35a-lab" routerDirection="back" expand="full">
+                        <IonButton routerLink="/it35-lab" routerDirection="back" expand="full">
                             <IonIcon icon={logOutOutline} slot="start"> </IonIcon>
                         Logout
                         </IonButton>
@@ -58,12 +58,12 @@ import Details from './Details';
                 </IonMenu>
                 
                 <IonRouterOutlet id="main">
-                    <Route exact path="/it35a-lab/app/home" component={Home} />
-                    <Route exact path="/it35a-lab/app/home/details" component={Details} />
-                    <Route exact path="/it35a-lab/app/about" component={About} />
+                    <Route exact path="/it35-lab/app/home" component={Home} />
+                    <Route exact path="/it35-lab/app/home/details" component={Details} />
+                    <Route exact path="/it35-lab/app/about" component={About} />
 
-                    <Route exact path="/it35a-lab/app">
-                        <Redirect to="/it35a-lab/app/home"/>
+                    <Route exact path="/it35-lab/app">
+                        <Redirect to="/it35-lab/app/home"/>
                     </Route>
                 </IonRouterOutlet>
 
