@@ -1,11 +1,24 @@
-import { IonContent, IonHeader, IonIcon, IonLabel, IonPage, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
-import './Home.css';
-import { IonReactRouter } from '@ionic/react-router';
+import { 
+  IonButton,
+    IonButtons,
+      IonContent, 
+      IonHeader, 
+      IonIcon, 
+      IonLabel, 
+      IonMenuButton, 
+      IonPage, 
+      IonRouterOutlet, 
+      IonTabBar, 
+      IonTabButton, 
+      IonTabs, 
+      IonTitle, 
+      IonToolbar 
+  } from '@ionic/react';
+import Feed from './home-tabs/Feed';
 import { Route, Redirect } from 'react-router';
-import Favorites from './Home-tabs/Favorites';
-import Feed from './Home-tabs/Feed';
-import Search from './Home-tabs/Search';
+import Favorites from './home-tabs/Favorites';
+import Search from './home-tabs/Search';
+import { IonReactRouter } from '@ionic/react-router';
 import { bookOutline, search, star } from 'ionicons/icons';
 
 const Home: React.FC = () => {
