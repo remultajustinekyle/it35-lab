@@ -16,7 +16,7 @@ import {
 } from '@ionic/react'
 import {homeOutline, logOutOutline, rocketOutline} from 'ionicons/icons';
 import { Redirect, Route } from 'react-router';
-import Home from './Home';
+import Home from './home';
 import About from './About';
 import Details from './Details';
 
