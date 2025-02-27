@@ -14,7 +14,7 @@ import {
   IonToolbar, 
   useIonRouter
 } from '@ionic/react';
-import { logoIonic } from 'ionicons/icons';
+import { eye, lockClosed, logoIonic } from 'ionicons/icons';
 
 const Login: React.FC = () => {
   const navigation = useIonRouter();
@@ -37,16 +37,26 @@ const Login: React.FC = () => {
           </IonAvatar>  
         </div>
         
+        
         <IonItem color="dark"> 
           <IonInput label="Username:" placeholder="Enter Username" style={{ color: 'white' }}></IonInput>
+          
         </IonItem>
-
         <IonItem color="dark"> 
-          <IonInput type="password" label="Password:" placeholder="Enter Password" style={{ color: 'white' }}>
+          <IonInput type="password" label="Password:" placeholder="Enter Password" style={{ color: 'white' }} >
             <IonInputPasswordToggle slot="end"></IonInputPasswordToggle>
           </IonInput>
+      
+      <IonItem>
+        <IonInput labelPlacement="stacked" label="Email" placeholder="email@domain.com">
+          <IonIcon slot="start" icon={lockClosed} aria-hidden="true"></IonIcon>
+          <IonButton fill="clear" slot="end" aria-label="Show/hide">
+            <IonIcon slot="icon-only" name={eye} aria-hidden="true"></IonIcon>
+          </IonButton>
+        </IonInput>
+      </IonItem>
+   
         </IonItem>
-
         <IonButton onClick={() => doLogin()} expand="full">
           Login
         </IonButton>
