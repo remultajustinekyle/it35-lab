@@ -14,45 +14,49 @@ import {
       IonTitle, 
       IonToolbar 
   } from '@ionic/react';
-import Feed from './Home-tabs/Feed';
-import { Route, Redirect } from 'react-router';
-import Favorites from './Home-tabs/Favorites';
-import Search from './Home-tabs/Search';
 import { IonReactRouter } from '@ionic/react-router';
 import { bookOutline, search, star } from 'ionicons/icons';
-const Home: React.FC = () => {
-  const tabs = [
-    {name:'Feed', tab:'feed',url: '/it35-lab/app/home/feed', icon: bookOutline},
-    {name:'Search', tab:'search', url: '/it35-lab/app/home/search', icon: search},
-    {name:'Favorites',tab:'favorites', url: '/it35-lab/app/home/favorites', icon: star},
-  ]
-  return (
-    <IonReactRouter>
-    <IonTabs>
-      <IonTabBar slot="bottom">
+import { Route, Redirect } from 'react-router';
 
-        {tabs.map((item, index) => (
-          <IonTabButton key={index} tab={item.tab} href={item.url}>
-            <IonIcon icon={item.icon} />
-            <IonLabel>{item.name}</IonLabel>
-          </IonTabButton>
-        ))}
-        
-      </IonTabBar>
-    <IonRouterOutlet>
+import Favorites from './home-tabs/Favorites';
+import Feed from './home-tabs/Feed';
+import Search from './home-tabs/Search';
+  
+  const Home: React.FC = () => {
 
-      <Route exact path="/it35-lab/app/home/feed" render={Feed} />
-      <Route exact path="/it35-lab/app/home/search" render={Search} />
-      <Route exact path="/it35-lab/app/home/favorites" render={Favorites} />
+    const tabs = [
+      {name:'Feed', tab:'feed',url: '/it35-lab/app/home/feed', icon: bookOutline},
+      {name:'Search', tab:'search', url: '/it35-lab/app/home/search', icon: search},
+      {name:'Favorites',tab:'favorites', url: '/it35-lab/app/home/favorites', icon: star},
+    ]
+    
+    return (
+      <IonReactRouter>
+        <IonTabs>
+          <IonTabBar slot="bottom">
 
-      <Route exact path="/it35-lab/app/home">
-        <Redirect to="/it35-lab/app/home/feed" />
-      </Route>
+            {tabs.map((item, index) => (
+              <IonTabButton key={index} tab={item.tab} href={item.url}>
+                <IonIcon icon={item.icon} />
+                <IonLabel>{item.name}</IonLabel>
+              </IonTabButton>
+            ))}
+            
+          </IonTabBar>
+        <IonRouterOutlet>
 
-    </IonRouterOutlet>
-    </IonTabs>
-  </IonReactRouter>
-  );
-};
+          <Route exact path="/it35-lab/app/home/feed" render={Feed} />
+          <Route exact path="/it35-lab/app/home/search" render={Search} />
+          <Route exact path="/it35-lab/app/home/favorites" render={Favorites} />
 
-export default Home;
+          <Route exact path="/it35-lab/app/home">
+            <Redirect to="/it35-lab/app/home/feed" />
+          </Route>
+
+        </IonRouterOutlet>
+        </IonTabs>
+      </IonReactRouter>
+    );
+  };
+  
+  export default Home;
