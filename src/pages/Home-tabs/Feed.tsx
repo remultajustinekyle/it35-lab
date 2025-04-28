@@ -7,6 +7,7 @@ IonButtons,
      IonTitle, 
      IonToolbar 
  } from '@ionic/react';
+import FeedContainer from '../../components/FeedContainer';
 
  
  
@@ -23,7 +24,7 @@ IonButtons,
        </IonHeader>
        <IonContent fullscreen>
         
-         
+         <FeedContainer/>
        </IonContent>
      </IonPage>
    );
