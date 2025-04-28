@@ -19,12 +19,13 @@ import {
   } from '@ionic/react'
   import {homeOutline, logOutOutline, rocketOutline, settingsOutline} from 'ionicons/icons';
 import { Redirect, Route } from 'react-router';
-import Home from './home';
+
 import About from './About';
 import Details from './Details';
 import { supabase } from '../utils/supabaseClient';
 import { useState } from 'react';
 import EditProfilePage from './EditProfilePage';
+import Home from './Home';
 
 
   const Menu: React.FC = () => {
