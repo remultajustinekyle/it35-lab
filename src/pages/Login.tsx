@@ -12,6 +12,19 @@ import {
 } from '@ionic/react';
 import { logoIonic, } from 'ionicons/icons';
 import { useState } from 'react'; 
+import { supabase } from '../utils/supabaseClient';
+
+const AlertBox: React.FC<{ message: string; isOpen: boolean; onClose: () => void }> = ({ message, isOpen, onClose }) => {
+  return (
+    <IonAlert
+      isOpen={isOpen}
+      onDidDismiss={onClose}
+      header="Notification"
+      message={message}
+      buttons={['OK']}
+    />
+  );
+};
   
   const Login: React.FC = () => {
     const navigation = useIonRouter();
@@ -23,7 +36,17 @@ import { useState } from 'react';
     const [showToast, setShowToast] = useState(false);
 
     const doLogin = async () => {
-      navigation.push('/it35-lab/app', 'forward', 'replace');
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+  
+      if (error) {
+        setShowAlert(true);
+        return;
+      }
+  
+      setShowToast(true); 
+      setTimeout(() => {
+        navigation.push('/it35-lab/app', 'forward', 'replace');
+      }, 300);
     };
     return (
       <IonPage>
@@ -46,11 +69,7 @@ import { useState } from 'react';
                        overflow: 'hidden' 
                      }}
                    >
-                      <IonIcon 
-                       icon={logoIonic}
-                       color='primary'
-                       style={{ fontSize: '120px', color: '#6c757d' }} 
-                     />
+                      
                    </IonAvatar>
                    <h1 style={{
                        display: 'flex',
