@@ -9,7 +9,7 @@ type ReactionType = 'heart' | 'laugh' | 'sad' | 'angry' | 'like';
 interface Reaction {
   reaction_id: string;
   post_id: string;
-  user_id: number;
+  user_id: string;
   username: string;
   reaction_type: ReactionType;
 }
@@ -17,7 +17,7 @@ interface Reaction {
 interface Comment {
   comment_id: string;
   post_id: string;
-  user_id: number;
+  user_id: string;
   username: string;
   avatar_url: string;
   comment_content: string;
@@ -26,7 +26,7 @@ interface Comment {
 
 interface Post {
   post_id: string;
-  user_id: number;
+  user_id: string;
   username: string;
   avatar_url: string;
   post_content: string;
@@ -191,7 +191,7 @@ const FeedContainer = () => {
 
     const existingReaction = posts
       .find(p => p.post_id === postId)
-      ?.reactions.find(r => r.user_id === Number(user.id));
+      ?.reactions.find(r => r.user_id === user.id);
 
     if (existingReaction) {
       // Remove reaction if it's the same type, otherwise update it
@@ -297,7 +297,7 @@ const FeedContainer = () => {
                       <IonCardSubtitle>{new Date(post.post_created_at).toLocaleString()}</IonCardSubtitle>
                     </IonCol>
                     <IonCol size="auto">
-                      {user.id === post.user_id && (
+                      {user.id === String(post.user_id) && (
                         <IonButton
                           fill="clear"
                           onClick={(e) =>
@@ -342,12 +342,12 @@ const FeedContainer = () => {
                             });
                           }}
                         >
-                          {post.reactions.some(r => r.user_id === Number(user?.id)) ? (
+                          {post.reactions.some(r => r.user_id === user.id) ? (
                             <>
                               <IonIcon
                                 slot="start"
-                                icon={getReactionIcon(post.reactions.find(r => r.user_id === Number(user?.id))?.reaction_type || 'like')}
-                                color={getReactionColor(post.reactions.find(r => r.user_id === Number(user?.id))?.reaction_type || 'like')}
+                                icon={getReactionIcon(post.reactions.find(r => r.user_id === user.id)?.reaction_type || 'like')}
+                                color={getReactionColor(post.reactions.find(r => r.user_id === user.id)?.reaction_type || 'like')}
                               />
                               {post.reactions.length}
                             </>
