@@ -1,0 +1,55 @@
+.about-content {
+  --background: var(--ion-background-color);
+}
+
+.about-card {
+  transition: all 0.3s ease-in-out;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.glass-card {
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.ion-color-dark .glass-card {
+  background: rgba(18, 18, 18, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ion-color-dark .about-content {
+  --background: #121212;
+}
+
+.ion-color-dark p,
+.ion-color-dark strong,
+.ion-color-dark h1,
+.ion-color-dark h2,
+.ion-color-dark h3 {
+  color: #e0e0e0 !important;
+}
+
+/* Animation */
+.animated-card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideFadeIn 0.6s ease-out forwards;
+}
+
+@keyframes slideFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.social-buttons {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.social-buttons ion-button {
+  margin: 0 8px;
+}
