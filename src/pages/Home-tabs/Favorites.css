@@ -1,0 +1,66 @@
+.favorites-toolbar {
+  --background: #6200ee; /* Purple background for the header */
+  --color: white; /* White text */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.favorites-content {
+  background: #f7f7f7; /* Light background color */
+  padding: 20px;
+}
+
+.favorites-heading {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.favorites-list {
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.favorites-item {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 20px;
+  transition: background-color 0.3s ease;
+}
+
+.favorites-item:last-child {
+  border-bottom: none;
+}
+
+.favorites-item:hover {
+  background-color: #f1f1f1; /* Hover effect for each item */
+}
+
+.favorites-icon {
+  font-size: 28px;
+  transition: transform 0.3s ease;
+}
+
+.favorites-item:hover .favorites-icon {
+  transform: scale(1.1); /* Slightly increase the size of the icon on hover */
+}
+
+.favorites-label {
+  font-size: 1rem;
+  color: #555;
+}
+
+.favorites-label strong {
+  color: #6200ee; /* Accent color for strong text */
+}
+
+@media (max-width: 768px) {
+  .favorites-heading {
+    font-size: 1.6rem;
+  }
+  .favorites-item {
+    padding: 12px 15px;
+  }
+}

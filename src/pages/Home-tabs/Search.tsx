@@ -9,6 +9,8 @@ import {
   IonSearchbar 
 } from '@ionic/react';
 
+
+
 const Search: React.FC = () => {
   return (
       <IonPage>
